@@ -14,6 +14,7 @@ class TuringMachine:
 
     def load_tape(self, input_string):
         self.tape = list(input_string) + [self.blank_symbol]
+        self.current_state = self.start_state
         self.head_position = 0
 
     def step(self):
@@ -25,16 +26,31 @@ class TuringMachine:
             self.head_position += 1 if direction == 'R' else -1
             if self.head_position < 0:
                 self.head_position = 0
+            elif self.head_position >= len(self.tape):
+                self.tape.append(self.blank_symbol)
         else:
             return False  
         return True
 
     def run(self):
         configurations = []
+        visited_confs = set()
+
+        current_config = (self.current_state, ''.join(self.tape), self.head_position)
+        configurations.append(current_config)
+        visited_confs.add(current_config)
+
         while self.current_state != self.accept_state and self.current_state != self.reject_state:
-            configurations.append((self.current_state, ''.join(self.tape), self.head_position))
             if not self.step():
                 break
+            current_config = (self.current_state, ''.join(self.tape), self.head_position)
+            configurations.append(current_config)
+
+            if current_config in visited_confs:
+                break
+
+            visited_confs.add(current_config)
+            
         configurations.append((self.current_state, ''.join(self.tape), self.head_position))
         return configurations
 

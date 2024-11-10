@@ -1,0 +1,3 @@
+State: q0, Tape: 000001111B, Head Position: 0
+State: q0, Tape: 000001111B, Head Position: 0
+La cadena 000001111 entra en un loop.
