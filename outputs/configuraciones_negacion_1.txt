@@ -1,3 +1,5 @@
 State: q0, Tape: 010B, Head Position: 0
-State: q0, Tape: 010B, Head Position: 0
-La cadena 010 entra en un loop.
+State: q1, Tape: 010B, Head Position: 1
+State: q2, Tape: 010B, Head Position: 2
+State: qrej, Tape: 010B, Head Position: 3
+La cadena 010 es rechazada.

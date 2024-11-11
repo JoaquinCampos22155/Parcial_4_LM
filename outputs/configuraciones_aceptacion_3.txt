@@ -1,3 +1,12 @@
 State: q0, Tape: 000001111B, Head Position: 0
-State: q0, Tape: 000001111B, Head Position: 0
-La cadena 000001111 entra en un loop.
+State: q1, Tape: 000001111B, Head Position: 1
+State: q1, Tape: 000001111B, Head Position: 2
+State: q1, Tape: 000001111B, Head Position: 3
+State: q1, Tape: 000001111B, Head Position: 4
+State: q1, Tape: 000001111B, Head Position: 5
+State: q2, Tape: 000001111B, Head Position: 6
+State: q2, Tape: 000001111B, Head Position: 7
+State: q2, Tape: 000001111B, Head Position: 8
+State: q2, Tape: 000001111B, Head Position: 9
+State: qace, Tape: 000001111BB, Head Position: 10
+La cadena 000001111 es aceptada.

@@ -1,3 +1,5 @@
 State: q0, Tape: 01B, Head Position: 0
-State: q0, Tape: 01B, Head Position: 0
-La cadena 01 entra en un loop.
+State: q1, Tape: 01B, Head Position: 1
+State: q2, Tape: 01B, Head Position: 2
+State: qace, Tape: 01BB, Head Position: 3
+La cadena 01 es aceptada.

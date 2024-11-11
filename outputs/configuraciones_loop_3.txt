@@ -1,3 +1,7 @@
 State: q0, Tape: 0000B, Head Position: 0
-State: q0, Tape: 0000B, Head Position: 0
+State: q1, Tape: 0000B, Head Position: 1
+State: q1, Tape: 0000B, Head Position: 2
+State: q1, Tape: 0000B, Head Position: 3
+State: q1, Tape: 0000B, Head Position: 4
+State: qloop, Tape: 0000BB, Head Position: 5
 La cadena 0000 entra en un loop.

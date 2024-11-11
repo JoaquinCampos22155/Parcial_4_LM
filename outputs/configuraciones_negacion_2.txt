@@ -1,3 +1,3 @@
 State: q0, Tape: 110B, Head Position: 0
-State: q0, Tape: 110B, Head Position: 0
-La cadena 110 entra en un loop.
+State: qrej, Tape: 110B, Head Position: 1
+La cadena 110 es rechazada.
