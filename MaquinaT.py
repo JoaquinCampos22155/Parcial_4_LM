@@ -29,10 +29,9 @@ class TuringMachine:
 
     def step(self):
         symbol = self.tape[self.head_position]
-        if (self.current_state, symbol) in self.transitions:
-            new_state, new_symbol, direction = self.transitions[
-                (self.current_state, symbol)
-            ]
+        transition_key = f"({self.current_state}, '{symbol}')"
+        if transition_key in self.transitions:
+            new_state, new_symbol, direction = self.transitions[transition_key]
             self.tape[self.head_position] = new_symbol
             self.current_state = new_state
             self.head_position += 1 if direction == "R" else -1
@@ -48,31 +47,38 @@ class TuringMachine:
         configurations = []
         visited_confs = set()
 
-        current_config = (self.current_state, "".join(self.tape), self.head_position)
-        configurations.append(current_config)
-        visited_confs.add(current_config)
-
         while (
             self.current_state != self.accept_state
             and self.current_state != self.reject_state
         ):
-            if not self.step():
+            if self.current_state == "qloop":
+                print("Loop state 'qloop' detected, stopping execution.")
                 break
+
             current_config = (
                 self.current_state,
                 "".join(self.tape),
                 self.head_position,
             )
             configurations.append(current_config)
-
-            if current_config in visited_confs:
-                break
-
             visited_confs.add(current_config)
 
-        configurations.append(
-            (self.current_state, "".join(self.tape), self.head_position)
-        )
+            if not self.step():
+                print("No valid transition found, stopping execution.")
+                break
+
+            current_config = (
+                self.current_state,
+                "".join(self.tape),
+                self.head_position,
+            )
+            if current_config in visited_confs:
+                print("Loop detected, stopping execution.")
+                return configurations
+
+        current_config = (self.current_state, "".join(self.tape), self.head_position)
+        configurations.append(current_config)
+
         return configurations
 
     def save_configurations(self, filename, configurations):
